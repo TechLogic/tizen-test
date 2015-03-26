@@ -1,12 +1,24 @@
 
 window.onload = function () {
-    // TODO:: Do your initialization job
-
-    // add eventListener for tizenhwkey
+		document.getElementById("start").addEventListener("click",startingApp);
+		document.getElementById("stop").addEventListener("click",stoppingApp);
     document.addEventListener('tizenhwkey', function(e) {
         if(e.keyName == "back")
             tizen.application.getCurrentApplication().exit();
     });
     
-        
+    
 };
+
+function startingApp()
+{
+	startAccel();
+	initPedo();
+	startPedo();
+}
+
+function stoppingApp()
+{
+	stopAccel();
+	stopPedo();
+}

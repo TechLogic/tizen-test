@@ -11,7 +11,7 @@
 	basic Application</title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="js/main.js"></script>
+
 </head>
 
 <body>
@@ -22,13 +22,20 @@
 		<div class="ui-content content-padding">
 			<p style="font-size: 25px; border-bottom: 1px solid #fff; padding-bottom: 10px;">Pedometer Readings</p>
 			<ul class="ui-listview">
-				<p id="calories" style="font-size: 20px">Calories</p>
-				<p id="steps" style="font-size: 20px">Steps</p>
+				<li id="calories" style="font-size: 20px">Calories</li>
+				<li id="steps" style="font-size: 20px">Steps</li>
+				
+				<li id="accelX" style="font-size: 20px">Accel X</li>
+				<li id="accelY" style="font-size: 20px">Accel Y</li>
+				<li id="accelZ" style="font-size: 20px">Accel Z</li>
 			</ul>
 			<button id="start">Start</button>
 			<button id="stop">Stop</button>
 		</div>
 	</div>
-<script src="js/pedo.js"></script>
 </body>
+
+<script src="js/pedo.js"></script>
+<script src="js/accel.js"></script>
+<script src="js/main.js"></script>
 </html>

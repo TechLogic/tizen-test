@@ -1,18 +1,17 @@
-( function (){
-	var pedometer = null,
-    pedometerData = {},
-    CONTEXT_TYPE = 'PEDOMETER';
+var pedometer = null;
 
-	if (window.webapis && window.webapis.motion !== undefined) {
-        pedometer = window.webapis.motion;
-        console.log('Pedometer found');
-        document.getElementById("start").addEventListener("click",start);
-        document.getElementById("stop").addEventListener("click",stop);
-        
-    }else {
-    	console.log('Pedometer not found');
-    }
+function initPedo(){
+	if(window.webapis && window.webapis.motion !== undefined){
+		pedometer = window.webapis.motion;
+		console.log("Pedometer found");
+	}
+	else
+	{
+		console.log("Pedometer not found");
+	}
 	
+    CONTEXT_TYPE = 'PEDOMETER';
+}
 	function getPedometerData(pedometerInfo){
 		var pData = {
 			calorie: pedometerInfo.cumulativeCalorie,
@@ -61,7 +60,7 @@
    	 document.getElementById("steps").innerHTML = 'Calories Burnt : ' + pedometerData.calorie;
 
     }
-    function start() {
+    function startPedo() {
         resetData();
         pedometer.start(
             CONTEXT_TYPE,
@@ -71,11 +70,11 @@
         );
         
     }
-    function stop() {
+    function stopPedo() {
     	console.log("Stop pedometer");
         pedometer.stop(CONTEXT_TYPE);
     }
-})();
+
 
 
 
