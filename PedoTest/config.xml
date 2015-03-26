@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/PedoTest" version="1.0.0" viewmodes="maximized">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/PedoTest" version="1.0.0" viewmodes="fullscreen">
     <tizen:application id="KMVauEhWJi.PedoTest" package="KMVauEhWJi" required_version="2.2"/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="icon.png"/>
     <name>PedoTest</name>
     <tizen:privilege name="http://developer.samsung.com/privilege/healthinfo"/>
+    <tizen:setting background-support="enable" encryption="disable" hwkey-event="enable"/>
+    
 </widget>
