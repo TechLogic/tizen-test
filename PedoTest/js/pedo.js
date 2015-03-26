@@ -35,35 +35,16 @@ function initPedo(){
 		return pedometerData;
 	}
 	
-	function resetData() {
-        console.log("Reset Data");
-        pedometerData = {
-            calorie: 0,
-            distance: 0,
-            runDownStep: 0,
-            runStep: 0,
-            runUpStep: 0,
-            speed: 0,
-            stepStatus: '',
-            totalStep: 0,
-            walkDownStep: 0,
-            walkStep: 0,
-            walkUpStep: 0,
-            walkingFrequency: 0
-        };
-    }
-	
     function handlePedometerInfo(pedometerInfo, eventName) {
    	 pedometerData = getPedometerData(pedometerInfo)
-   	 //console.log('Total Steps : ' + pedometerData.totalStep);
+   	 console.log('Total Steps : ' + pedometerData.totalStep);
    	 document.getElementById("calories").innerHTML =  'Total Steps : ' + pedometerData.totalStep;
    	 document.getElementById("steps").innerHTML = 'Calories Burnt : ' + pedometerData.calorie;
 
     }
     function startPedo() {
-        resetData();
         pedometer.start(
-            CONTEXT_TYPE,
+        	'PEDOMETER',
             function onSuccess(pedometerInfo) {
                 handlePedometerInfo(pedometerInfo, 'pedometer.change');
             }
@@ -72,7 +53,7 @@ function initPedo(){
     }
     function stopPedo() {
     	console.log("Stop pedometer");
-        pedometer.stop(CONTEXT_TYPE);
+        pedometer.stop('PEDOMETER');
     }
 
 

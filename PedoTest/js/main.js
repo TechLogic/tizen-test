@@ -12,7 +12,7 @@ window.onload = function () {
 
 function startingApp()
 {
-	//startAccel();
+	startAccel();
 	initPedo();
 	startPedo();
 	initHeart();
@@ -21,7 +21,7 @@ function startingApp()
 
 function stoppingApp()
 {
-	//stopAccel();
+	stopAccel();
 	stopPedo();
 	stopHeart();
 }

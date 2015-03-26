@@ -12,12 +12,13 @@ function initHeart(){
 	
     CONTEXT_TYPE = 'HRM';
 }
-	function getPedometerData(hrmInfo){
+	function getHRMData(hrmInfo){
 		var pData = {
 			heartRate: hrmInfo.heartRate,
             rRInterval: hrmInfo.rRInterval,
 		};
 		hrmData = pData;
+		console.log(hrmInfo);
 		return pData;
 	}
 	
@@ -26,25 +27,25 @@ function initHeart(){
 	}
 	
 	
-    function handlePedometerInfo(hrmInfo, eventName) {
-   	 hrmData = getPedometerData(hrmInfo)
-   	 console.log(hrmData);
+    function handleHeartInfo(hrmInfo, eventName) {
+   	 hrmData = getHRMData(hrmInfo)
+   	 //console.log(hrmData);
    	 document.getElementById("rate").innerHTML =  'Hear rate : ' + hrmData.heartRate;
    	 document.getElementById("interval").innerHTML = 'R interva : ' + hrmData.rRInterval;
 
     }
     function startHeart() {
         hrm.start(
-            CONTEXT_TYPE,
+        	'HRM',
             function onSuccess(hrmInfo) {
-                handlePedometerInfo(hrmInfo, 'hrm.change');
+                handleHeartInfo(hrmInfo, 'hrm.change');
             }
         );
         
     }
     function stopHeart() {
-    	console.log("Stop pedometer");
-        hrm.stop(CONTEXT_TYPE);
+    	console.log("Stop hrm");
+        hrm.stop('HRM');
     }
 
 
