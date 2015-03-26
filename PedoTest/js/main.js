@@ -12,13 +12,16 @@ window.onload = function () {
 
 function startingApp()
 {
-	startAccel();
+	//startAccel();
 	initPedo();
 	startPedo();
+	initHeart();
+	startHeart();
 }
 
 function stoppingApp()
 {
-	stopAccel();
+	//stopAccel();
 	stopPedo();
+	stopHeart();
 }
