@@ -55,7 +55,7 @@ function initPedo(){
 	
     function handlePedometerInfo(pedometerInfo, eventName) {
    	 pedometerData = getPedometerData(pedometerInfo)
-   	 console.log('Total Steps : ' + pedometerData.totalStep);
+   	 //console.log('Total Steps : ' + pedometerData.totalStep);
    	 document.getElementById("calories").innerHTML =  'Total Steps : ' + pedometerData.totalStep;
    	 document.getElementById("steps").innerHTML = 'Calories Burnt : ' + pedometerData.calorie;
 

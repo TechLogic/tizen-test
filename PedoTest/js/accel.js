@@ -9,13 +9,13 @@
     }
 
     function handleAccel(e) {
-		accelX: e.accelerationIncludingGravity.x;
-		accelY: -e.accelerationIncludingGravity.y;
-		accelZ: -e.accelerationIncludingGravity.z;
+		accelX = e.acceleration.x;
+		accelY = -(e.acceleration.y);
+		accelZ = -(e.acceleration.z);
     	console.log(accelX);
     	
 		document.getElementById("accelX").innerHTML =  'Accel X : ' + accelX;
 	   	document.getElementById("accelY").innerHTML = 'Accel Y : ' + accelY;
 	   	document.getElementById("accelZ").innerHTML = 'Accel Z : ' + accelZ;
-	   	console.log("handle accel");
+	   	//console.log("handle accel");
 	};   
