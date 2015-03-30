@@ -1,4 +1,5 @@
 var pedometer = null;
+var pedoData = {};
 
 function initPedo(){
 	if(window.webapis && window.webapis.motion !== undefined){

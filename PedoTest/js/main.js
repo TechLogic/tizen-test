@@ -1,4 +1,4 @@
-
+var startTime;
 window.onload = function () {
 		document.getElementById("start").addEventListener("click",startingApp);
 		document.getElementById("stop").addEventListener("click",stoppingApp);
@@ -12,6 +12,7 @@ window.onload = function () {
 
 function startingApp()
 {
+	startTime = new Date().getTime();
 	startAccel();
 	initPedo();
 	startPedo();
@@ -21,6 +22,8 @@ function startingApp()
 
 function stoppingApp()
 {
+
+	saveAsJSON();
 	stopAccel();
 	stopPedo();
 	stopHeart();

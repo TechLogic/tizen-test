@@ -1,4 +1,6 @@
 var hrm = null;
+var heartData = [];
+
 
 function initHeart(){
 	if(window.webapis && window.webapis.motion !== undefined){
@@ -12,26 +14,29 @@ function initHeart(){
 	
     CONTEXT_TYPE = 'HRM';
 }
-	function getHRMData(hrmInfo){
+	function handleHRMData(hrmInfo){
 		var pData = {
-			heartRate: hrmInfo.heartRate,
-            rRInterval: hrmInfo.rRInterval,
+			value: hrmInfo.heartRate,
+			time : ((new Date().getTime())-startTime)/1000
 		};
-		hrmData = pData;
-		console.log(hrmInfo);
+		heartData.push(pData);
 		return pData;
 	}
-	
+
 	function getData(){
-		return hrmData;
+		return hrmData;		
+	}
+	
+	function getHRMData(){
+		return heartData;
 	}
 	
 	
     function handleHeartInfo(hrmInfo, eventName) {
-   	 hrmData = getHRMData(hrmInfo)
-   	 //console.log(hrmData);
-   	 document.getElementById("rate").innerHTML =  'Hear rate : ' + hrmData.heartRate;
-   	 document.getElementById("interval").innerHTML = 'R interva : ' + hrmData.rRInterval;
+    
+   	 hrmData = handleHRMData(hrmInfo);
+   
+   	 document.getElementById("rate").innerHTML =  'Hear rate : ' + hrmData.value;
 
     }
     function startHeart() {
@@ -47,7 +52,6 @@ function initHeart(){
     	console.log("Stop hrm");
         hrm.stop('HRM');
     }
-
 
 
 
